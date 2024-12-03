@@ -12,7 +12,7 @@ const {type: typeSlider} = slider
 const {autoStart: autoStartSlider} = slider
 
 const nameTable = ["Ala", "Ela", "Ola"]
-// Nie do konca rozumiem jak ma wygldac efekt
+const [name1, name2, name3] = nameTable
 
 function generateRandomNumbers () {
   let randomNumbers = [];

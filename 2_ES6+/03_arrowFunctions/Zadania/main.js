@@ -1,7 +1,11 @@
-const getSecondMaxNumber = array => {
-  const maxNr = Math.max(...array);
-  const arrWithoutMax = array.filter(nr => nr !== maxNr)
+const getSecondMaxNumber = myArr => {
+  const arrWithoutMax = myArr.filter(nr => nr !==  Math.max(...myArr))
   return Math.max(...arrWithoutMax)
+}
+
+const sortingSecondMaxNumber = myArr => {
+  myArr.sort((a, b) => a - b);
+  return myArr[myArr.length - 2]
 }
 
 const runInterval = (n= 8) => {

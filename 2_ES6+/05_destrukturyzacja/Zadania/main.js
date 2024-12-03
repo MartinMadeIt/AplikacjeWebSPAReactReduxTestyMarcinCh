@@ -1,6 +1,5 @@
 const table1 = [ "snow", "rain", "sun" ]
-const var1 = table1[0];
-const var2 = table1[table1.length - 1];
+const [var1,,var2] = table1
 
 const slider = {
   type: "infinite",
@@ -9,8 +8,8 @@ const slider = {
   autoStart: true
 }
 
-const type = slider.type
-const autoStart = slider.autoStart
+const {type: typeSlider} = slider
+const {autoStart: autoStartSlider} = slider
 
 const nameTable = ["Ala", "Ela", "Ola"]
 // Nie do konca rozumiem jak ma wygldac efekt
@@ -18,17 +17,15 @@ const nameTable = ["Ala", "Ela", "Ola"]
 function generateRandomNumbers () {
   let randomNumbers = [];
   for (let i = 0; i < 5; i++) {
-    const random = Math.floor(Math.random() * 6);
-    randomNumbers.push(random);
+    randomNumbers.push(Math.floor(Math.random() * 6));
   }
 
   return randomNumbers
 }
 const randomTable = generateRandomNumbers()
-const random1 = randomTable[0]
-const random2 = randomTable[1]
+const [random1, ,random3] = randomTable
 console.log(random1);
-console.log(random2);
+console.log(random3);
 console.log(randomTable)
 
 
@@ -38,5 +35,9 @@ const cat = {
   getVoice: () => "miau miau"
 };
 
-const showAnimal = animal => console.log(`Kot ${animal.name} ma ${animal.age} lat i robi ${animal.getVoice()}`)
+const showAnimal = ({name, getVoice, age: catAge}) => {
+  const {age: catAge} = cat
+  console.log(`Kot ${name} ma ${catAge} lat i robi ${getVoice()}`)
+}
+
 showAnimal(cat)
